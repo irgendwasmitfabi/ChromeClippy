@@ -1,0 +1,21 @@
+body {
+    background: #070f2b;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .middle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5.5%;
+  }
+  
+  .bottom-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  

@@ -1,0 +1,234 @@
+.new-item-form {
+    background-color: #1b1a55;
+    color: #ffffff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 4rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1), 8px 32px 32px rgba(0, 0, 0, 0.15), 8px 64px 64px rgba(0, 0, 0, 0.15);
+  }
+  
+  .new-item-form-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .new-item-form h1 {
+    margin-bottom: 20px;
+  }
+  
+  /* Buttons */
+  .button-div {
+    width: 150px;
+  }
+
+  .new-item-form-buttons {
+    display: flex;
+    margin-top: 20px;
+    width: 315px;
+    justify-content: space-between;
+  }
+
+  .form-button {
+    appearance: button;
+    background-color: #535C91;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  .form-button:after {
+    background-clip: padding-box;
+    background-color: #9290C3;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .form-button:main,
+  .form-button:focus {
+    user-select: auto;
+  }
+  
+  .form-button:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+  
+  .form-button:disabled {
+    cursor: auto;
+  }
+  
+  .form-button:active {
+    border-width: 4px 0 0;
+    background: none;
+  }
+  
+  /* File input */
+  .drop-zone {
+    position: relative;
+    width: 315px;
+    height: 40px;
+    border-radius: 12px;
+    border: 2px dashed #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .drop-zone:hover {
+    background-color: #9290C3;
+  }
+  
+  .image-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .file-label {
+    cursor: pointer;
+  }
+  
+  .drag-over {
+    background-color: #9290C3;
+  }
+  
+  /* New Item Form inputs */
+  .input-div { 
+    position:relative; 
+    margin-bottom:45px; 
+  }
+  
+  .form-input {
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+    background-color: #1b1a55;
+    color: #FFFFFF;
+  }
+  .form-input:focus 		{ outline:none; }
+  
+  /* Input label */
+  .input-div label {
+    color:#FFFFFF; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  /* Active state */
+  .form-input:focus ~ label, .form-input:valid ~ label 		{
+    top:-20px;
+    font-size:14px;
+    color:#5264AE;
+  }
+  
+  /* Bottom bars*/
+  .bar 	{ position:relative; display:block; width:300px; }
+  .bar:before, .bar:after 	{
+    content:'';
+    height:2px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background:#5264AE; 
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%; 
+  }
+  
+  /* Active state */
+  .form-input:focus ~ .bar:before, .form-input:focus ~ .bar:after {
+    width:50%;
+  }
+  
+  /* Highlight */
+  .highlight {
+    position:absolute;
+    height:60%; 
+    width:100px; 
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  /* Active state */
+  .form-input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+  
+  /* Animations */
+  @-webkit-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
