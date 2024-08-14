@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom New Tab</title>
+    <link rel="stylesheet" type="text/css" href="styles/newInputForm.css" />
+    <link rel="stylesheet" type="text/css" href="styles/settingsMenu.css" />
+    <link rel="stylesheet" type="text/css" href="styles/item.css" />
+    <link rel="stylesheet" type="text/css" href="styles/searchbar.css" />
+    <link rel="stylesheet" type="text/css" href="styles/base.css" />
+    <link rel="stylesheet" type="text/css" href="styles/clock.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="settings-container">
+          <div class="dropdown">
+            <div class="hover-area"><img class="settings-image" src="imgs/settings.svg" alt="settings"/></div>
+            <div class="dropdown-content">
+              <a class="dropdown-option" href="#" id="openNewItemForm">Add new item</a>
+              <a class="dropdown-option" href="#" id="removeItems">Remove items</a>
+              <a class="dropdown-option" href="#" id="openNewBackgroundForm">New Background</a>
+              <a class="dropdown-option" href="#" id="openOptionsForms">Options</a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="middle-container">
+      <div class="clock-container" id="clock-container"></div>
+      <form action="https://www.google.com/search" method="GET" target="_blank">
+        <input class="searchbar" type="text" name="q" />
+      </form>
+    </div>
+    <div class="bottom-container">
+      <div class="item-container" id="item-container"></div>
+    </div>
+    <div class="new-item-form" id="new-item-form"style="display: none;">
+      <form>
+        <div class="new-item-form-body">
+          <h1 id="new-item-form-headline"></h1>
+          <p id="hidden-indicator" style="display: none;""></h1>
+          <div class="input-div" style="display: none;">
+            <input class="name-input form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Name</label>
+          </div>
+          <div class="input-div" style="display: none;">
+            <input class="url-input form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>URL</label>
+          </div>
+          <div class="image-file-input-div">
+            <div class="drop-zone">
+              <input type="file" id="image-file-Input" class="image-file-input">
+              <label for="fileInput" class="file-label">Drag & Drop or Click to Upload</label>
+            </div>
+          </div>
+          <div class="new-item-form-buttons">
+            <div class="button-div">
+              <button class="form-button" id="save-button">Save</button>
+            </div>
+            <div class="button-div">
+              <button class="form-button" id="close-button">Close</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <menu id="right-click-menu">
+      <menu title="File">
+          <menu title="Save"></menu>
+          <menu title="Save As"></menu>
+          <menu title="Open"></menu>
+      </menu>
+    </menu>
+    <script src="logic/initializeBackground.js"></script>
+    <script src="logic/clock.js"></script>
+    <script src="logic/chromeStorageController.js"></script>
+    <script src="logic/dragAndDropController.js"></script>
+    <script src="logic/dropdownController.js"></script>
+    <script src="logic/fileInput.js"></script>
+    <script src="logic/rightClickController.js"></script>
+    <script src="logic/createItemIcons.js"></script>
+  </body>
+</html>
