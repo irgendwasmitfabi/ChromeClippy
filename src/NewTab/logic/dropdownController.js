@@ -81,6 +81,16 @@ function toggleRemoveItemIcons(){
     if (!removeItemIconsActive) {
         for (var i = 0; i < removeIconContainers.length; i++) {
             removeIconContainers[i].style.display = "block";
+
+            removeIconContainers[i].addEventListener('click', function(event) {
+                event.preventDefault();
+
+                var itemName = event.srcElement.classList[0].replace(/remove-icon-container|\s+/g, '');
+
+                var databaseItemName = itemName.replace(/0/g, ' ');
+
+                removeItem(databaseItemName)
+            });
         }
 
         removeItemIconsActive = true;

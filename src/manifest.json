@@ -1,10 +1,22 @@
 {
-  "name": "Chrome Controller",
+  "name": "Chrome Clippy",
   "version": "1.0",
-  "description": "Chrome Controller",
-  "permissions": ["storage"],
+  "description": "An easy to use extension to manage your chrome experience with clippy!",
+  "permissions": [
+    "storage", 
+    "tabs",
+    "scripting",
+    "activeTab"
+  ],
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "action": {
+    "default_popup": "chromeClippyMenu.html",
+    "default_icon": "clippy.png"
+  },
+  "host_permissions": [
+    "https://suggestqueries.google.com/*"
+  ],
   "manifest_version": 3
 }

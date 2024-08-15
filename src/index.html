@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom New Tab</title>
-    <link rel="stylesheet" type="text/css" href="styles/newInputForm.css" />
-    <link rel="stylesheet" type="text/css" href="styles/settingsMenu.css" />
-    <link rel="stylesheet" type="text/css" href="styles/item.css" />
-    <link rel="stylesheet" type="text/css" href="styles/searchbar.css" />
-    <link rel="stylesheet" type="text/css" href="styles/base.css" />
-    <link rel="stylesheet" type="text/css" href="styles/clock.css" />
+    <link rel="stylesheet" type="text/css" href="NewTab/styles/newInputForm.css" />
+    <link rel="stylesheet" type="text/css" href="NewTab/styles/settingsMenu.css" />
+    <link rel="stylesheet" type="text/css" href="NewTab/styles/item.css" />
+    <link rel="stylesheet" type="text/css" href="NewTab/styles/searchbar.css" />
+    <link rel="stylesheet" type="text/css" href="NewTab/styles/base.css" />
+    <link rel="stylesheet" type="text/css" href="NewTab/styles/clock.css" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
     </style>
@@ -18,7 +18,7 @@
     <div class="header-container">
       <div class="settings-container">
           <div class="dropdown">
-            <div class="hover-area"><img class="settings-image" src="imgs/settings.svg" alt="settings"/></div>
+            <div class="hover-area"><img class="settings-image" src="./NewTab/imgs/settings.svg" alt="settings"/></div>
             <div class="dropdown-content">
               <a class="dropdown-option" href="#" id="openNewItemForm">Add new item</a>
               <a class="dropdown-option" href="#" id="removeItems">Remove items</a>
@@ -30,9 +30,10 @@
     </div>
     <div class="middle-container">
       <div class="clock-container" id="clock-container"></div>
-      <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input class="searchbar" type="text" name="q" />
-      </form>
+      <form action="https://www.google.com/search" method="GET">
+        <input type="text" name="q" id="search" placeholder="Search Google..." autocomplete="off" class="searchbar">
+        <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+    </form>
     </div>
     <div class="bottom-container">
       <div class="item-container" id="item-container"></div>
@@ -78,13 +79,14 @@
           <menu title="Open"></menu>
       </menu>
     </menu>
-    <script src="logic/initializeBackground.js"></script>
-    <script src="logic/clock.js"></script>
-    <script src="logic/chromeStorageController.js"></script>
-    <script src="logic/dragAndDropController.js"></script>
-    <script src="logic/dropdownController.js"></script>
-    <script src="logic/fileInput.js"></script>
-    <script src="logic/rightClickController.js"></script>
-    <script src="logic/createItemIcons.js"></script>
+    <script src="NewTab/logic/initializeBackground.js"></script>
+    <script src="NewTab/logic/googleSuggestionAPI.js"></script>
+    <script src="NewTab/logic/clock.js"></script>
+    <script src="NewTab/logic/chromeStorageController.js"></script>
+    <script src="NewTab/logic/dragAndDropController.js"></script>
+    <script src="NewTab/logic/dropdownController.js"></script>
+    <script src="NewTab/logic/fileInput.js"></script>
+    <script src="NewTab/logic/rightClickController.js"></script>
+    <script src="NewTab/logic/createItemIcons.js"></script>
   </body>
 </html>

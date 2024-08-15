@@ -1,26 +1,9 @@
 createItemIcons();
 
-document.getElementsByClassName("removeItems").addEventListener("click", function (event) {
-    event.preventDefault();
-
-    toggleRemoveItemIcons();
-});
-
-function createItemIcons() {
-    getItemsFromStorage(function (items) {
-        if (items && items.length > 0) {
-            items.forEach(item => {
-                addNewItem(item);
-            });
-        }
-        addDragAndDropEventListeners();
-    });
-}
-
 function addNewItem(item) {
     var itemContainer = document.getElementById("item-container");
 
-    var itemClassName = item.name.replace(" ", "#");
+    var itemClassName = item.name.replace(" ", "0");
     console.log(itemClassName);
 
     var div = document.createElement('div');
@@ -42,10 +25,12 @@ function addNewItem(item) {
 
     var removeIconContainer = document.createElement('div');
     removeIconContainer.classList.add("remove-icon-container");
+    removeIconContainer.classList.add(itemClassName);
     removeIconContainer.style.display = "none";
 
     var removeIcon = document.createElement('p');
     removeIcon.textContent = "x";
+    removeIcon.classList.add(itemClassName);
     removeIcon.classList.add("remove-icon");
 
     div.appendChild(link);
@@ -54,4 +39,15 @@ function addNewItem(item) {
     link.appendChild(removeIconContainer);
     removeIconContainer.appendChild(removeIcon);
     itemContainer.appendChild(div);
+}
+
+function createItemIcons() {
+    getItemsFromStorage(function (items) {
+        if (items && items.length > 0) {
+            items.forEach(item => {
+                addNewItem(item);
+            });
+        }
+        addDragAndDropEventListeners();
+    });
 }

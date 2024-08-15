@@ -15,7 +15,7 @@ document.getElementById("save-button").addEventListener("click", function (event
     var nameInput = document.getElementsByClassName("name-input")[0].value;
     var urlInputValue = document.getElementsByClassName("url-input")[0].value;
     
-    if (document.getElementsByClassName("newBackground")) {
+    if (document.getElementsByClassName("newBackground").length !== 0) {
         changeBackgroundImage(fileInput.files[0]);
     } else if (document.getElementsByClassName("newItem")){
         getDataForNewURL(urlInputValue, fileInput, nameInput);
@@ -73,6 +73,8 @@ function getDataForNewURL(urlInputValue, fileInput, nameInput){
                 }
 
                 updateItems(items, newItem);
+                toggleNewItemForm();
+                addDragAndDropEventListeners();
             })
         };
         reader.readAsDataURL(fileInputValue);
@@ -88,10 +90,13 @@ function getItemsFromStorage(callback) {
     })
 }
 
-function removeItem(items, itemToRemove) {
-    var filtered = items.filter(function(item) { return item.name != itemToRemove.name && item.url != itemToRemove.url})
+function removeItem(itemNameToRemove) {
+    getItemsFromStorage(function (items) {
+        var filtered = items.filter(function(item) { return item.name != itemNameToRemove})
 
-    updateItems(filtered);
+        updateItems(filtered);
+        location.reload();
+    });
 }
 
 function updateItems(items, newItem) {
@@ -99,9 +104,6 @@ function updateItems(items, newItem) {
         if (newItem) {
             addNewItem(newItem);
         }
-
-        toggleNewItemForm();
-        addDragAndDropEventListeners();
     })
 }
 
